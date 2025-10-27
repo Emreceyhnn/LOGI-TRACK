@@ -17,6 +17,7 @@ import {
   createTheme,
   ThemeProvider,
 } from "@mui/material";
+import { useState } from "react";
 
 const theme = createTheme({
   typography: {
@@ -28,6 +29,21 @@ const backgroundImage =
   "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1080&q=80";
 
 export default function SignInView({ locale = "en" }) {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await res.json();
+    console.log(data);
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -38,17 +54,13 @@ export default function SignInView({ locale = "en" }) {
           alignItems: "center",
           justifyContent: "center",
           bgcolor: alpha("#0f172a", 0.12),
-          py: { xs: 6, md: 8 },
-          px: { xs: 2, sm: 4 },
         }}
       >
         <Paper
           elevation={12}
           sx={{
             width: "100%",
-            maxWidth: 1050,
-            minHeight: { xs: 560, md: 600 },
-            borderRadius: { xs: 4, md: 5 },
+            height:"100vh",
             overflow: "hidden",
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
@@ -135,7 +147,7 @@ export default function SignInView({ locale = "en" }) {
           </Box>
           <Box
             sx={{
-              flexBasis: { xs: "100%", md: 360 },
+              flexBasis: { xs: "100%", md: 460 },
               bgcolor: "#f8fafc",
               display: "flex",
               alignItems: "center",
@@ -151,13 +163,7 @@ export default function SignInView({ locale = "en" }) {
                   <Typography variant="h5" sx={{ fontWeight: 700, textAlign: "center" }}>
                     Login to Your Company Dashboard
                   </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ textAlign: "center" }}
-                  >
-                    Enter your credentials to access fleet analytics and dispatch tools.
-                  </Typography>
+                  
                 </Stack>
                 <Stack component="form" spacing={2} noValidate>
                   <TextField
@@ -166,6 +172,7 @@ export default function SignInView({ locale = "en" }) {
                     type="email"
                     autoComplete="email"
                     fullWidth
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <TextField
                     label="Password"
@@ -173,6 +180,7 @@ export default function SignInView({ locale = "en" }) {
                     type="password"
                     autoComplete="current-password"
                     fullWidth
+                    onChange={(e)=>setPassword(e.target.value)}
                   />
                   <Stack
                     direction="row"
@@ -204,6 +212,7 @@ export default function SignInView({ locale = "en" }) {
                       "&:hover": { bgcolor: "#1d4ed8" },
                       boxShadow: `0 20px 40px ${alpha("#2563eb", 0.25)}`,
                     }}
+                    onClick={handleSubmit}
                   >
                     Login
                   </Button>
