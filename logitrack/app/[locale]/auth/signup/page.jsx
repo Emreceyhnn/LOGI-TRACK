@@ -19,8 +19,7 @@ const HERO_IMAGE =
 
 export default function SignupPage() {
   const [form, setForm] = useState({
-    fullName: "",
-    company: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -29,10 +28,21 @@ export default function SignupPage() {
     setForm((prev) => ({ ...prev, [field]: event.target.value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // TODO: replace with real signup flow once API is ready
-    console.log("Sign up submitted", form);
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Kayıt başarısız");
+
+    } catch (error) {
+      console.error("Kayıt hatası:", error);
+    }
   };
 
   return (
@@ -51,8 +61,8 @@ export default function SignupPage() {
         elevation={12}
         sx={{
           width: "100%",
-          maxWidth: 1080,
-          minHeight: { md: 600 },
+          maxWidth: "80%",
+          minHeight: { md: 750 },
           borderRadius: 6,
           overflow: "hidden",
           display: "flex",
@@ -62,12 +72,12 @@ export default function SignupPage() {
         <Box
           sx={{
             position: "relative",
-            flexBasis: { md: "52%" },
+            flexBasis: { md: "75%" },
             display: { xs: "none", md: "block" },
           }}
         >
           <Image
-            src={HERO_IMAGE}
+            src={"/bg.png"}
             alt="Fleet of trucks at sunset"
             fill
             sizes="(min-width: 900px) 50vw, 0vw"
@@ -137,8 +147,7 @@ export default function SignupPage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            py: { xs: 8, md: 0 },
-            px: { xs: 3, sm: 6, md: 8 },
+            
           }}
         >
           <Paper
@@ -147,14 +156,15 @@ export default function SignupPage() {
             elevation={0}
             sx={{
               width: "100%",
-              maxWidth: 360,
+              maxWidth: '100%',
+              height: "100%",
               p: 4,
               borderRadius: 4,
               backgroundColor: "rgba(255,255,255,0.98)",
               boxShadow: "0 24px 48px rgba(15,26,51,0.18)",
             }}
           >
-            <Stack spacing={3}>
+            <Stack spacing={5}>
               <Box>
                 <Typography
                   variant="subtitle2"
@@ -174,8 +184,8 @@ export default function SignupPage() {
                 <TextField
                   label="Full Name"
                   variant="outlined"
-                  value={form.fullName}
-                  onChange={handleChange("fullName")}
+                  value={form.name}
+                  onChange={handleChange("name")}
                   fullWidth
                   required
                 />
@@ -220,6 +230,7 @@ export default function SignupPage() {
                     background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
                     boxShadow: "0 16px 32px rgba(37,99,235,0.3)",
                   }}
+                  onClick={handleSubmit}
                 >
                   Create Account
                 </Button>
