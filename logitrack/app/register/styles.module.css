@@ -1,0 +1,204 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: linear-gradient(135deg, #f5f9f5 0%, #eef6ee 100%);
+  color: #0f2d1d;
+}
+
+.leftPanel {
+  position: relative;
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 60%, #43a047 100%);
+  color: #ffffff;
+  padding: 72px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  overflow: hidden;
+}
+
+.leftPanel::before,
+.leftPanel::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(0);
+}
+
+.leftPanel::before {
+  width: 360px;
+  height: 360px;
+  top: -120px;
+  right: -120px;
+}
+
+.leftPanel::after {
+  width: 220px;
+  height: 220px;
+  bottom: -80px;
+  left: -60px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: 0.04em;
+  z-index: 1;
+}
+
+.brandMark {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.leftContent {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 460px;
+}
+
+.leftContent h1 {
+  font-size: clamp(2.15rem, 2.5vw + 1.5rem, 2.8rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.leftContent p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.highlightList {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+  padding: 0;
+}
+
+.highlightList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.highlightBullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #b9f6ca;
+  box-shadow: 0 0 0 4px rgba(185, 246, 202, 0.18);
+}
+
+.leftFooter {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  z-index: 1;
+}
+
+.rightPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px;
+}
+
+.card {
+  width: min(420px, 100%);
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 44px;
+  box-shadow: 0 22px 60px rgba(27, 94, 32, 0.12);
+  border: 1px solid rgba(46, 125, 50, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardHeader h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #12361f;
+}
+
+.cardHeader p {
+  font-size: 0.98rem;
+  color: #4a5d53;
+}
+
+.cardHeader a {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.terms {
+  font-size: 0.85rem;
+  color: #6b7c70;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .leftPanel {
+    padding: 64px;
+  }
+
+  .rightPanel {
+    padding: 64px;
+  }
+}
+
+@media (max-width: 960px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .leftPanel {
+    padding: 56px 48px;
+    min-height: 420px;
+  }
+
+  .rightPanel {
+    padding: 56px 36px 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  .leftPanel {
+    padding: 48px 32px;
+    gap: 36px;
+  }
+
+  .rightPanel {
+    padding: 48px 24px 64px;
+  }
+
+  .card {
+    padding: 32px 24px;
+    border-radius: 22px;
+  }
+
+  .cardHeader h2 {
+    font-size: 1.65rem;
+  }
+}
