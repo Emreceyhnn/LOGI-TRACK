@@ -25,23 +25,30 @@ const theme = createTheme({
   },
 });
 
-const backgroundImage =
-  "https://images.squarespace-cdn.com/content/v1/5940ec0a3e00befac5d7633c/177e1da1-4122-4218-98b9-a552878648c7/logistics.png";
 
 export default function SignInView({ locale = "en" }) {
+  
+  /* --------------------------------- states --------------------------------- */
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  /* --------------------------------- handler -------------------------------- */
+  
+  const handleChange = (field) => (event) => {
+    setForm((prev) => ({ ...prev, [field]: event.target.value }));
+  };
 
-  async function handleSubmit(e) {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(form),
     });
     const data = await res.json();
-    console.log(data);
   }
 
   return (
@@ -87,7 +94,7 @@ export default function SignInView({ locale = "en" }) {
                 backgroundImage: `linear-gradient(90deg, ${alpha(
                   "#0f172a",
                   0.75
-                )}, ${alpha("#0f172a", 0.35)}), url(${backgroundImage})`,
+                )}, ${alpha("#0f172a", 0.35)}), url(https://images.squarespace-cdn.com/content/v1/5940ec0a3e00befac5d7633c/177e1da1-4122-4218-98b9-a552878648c7/logistics.png)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -165,7 +172,7 @@ export default function SignInView({ locale = "en" }) {
                 <Stack spacing={0.5} alignItems="center">
                   <Image src="/logo1-vector.png" alt="Logi-Track" width={50} height={50} />
                   <Typography variant="h5" sx={{ fontWeight: 700, textAlign: "center" }}>
-                    Login to Your Company Dashboard
+                    Login to Your Dashboard
                   </Typography>
                   
                 </Stack>
@@ -175,8 +182,10 @@ export default function SignInView({ locale = "en" }) {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    value={form.email}
+                    onChange={handleChange("email")}
                     fullWidth
-                    onChange={(e) => setEmail(e.target.value)}
+                   
                   />
                   <TextField
                     label="Password"
@@ -184,7 +193,8 @@ export default function SignInView({ locale = "en" }) {
                     type="password"
                     autoComplete="current-password"
                     fullWidth
-                    onChange={(e)=>setPassword(e.target.value)}
+                    value={form.password}
+                    onChange={handleChange("password")}
                   />
                   <Stack
                     direction="row"

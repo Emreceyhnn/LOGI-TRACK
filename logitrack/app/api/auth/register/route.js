@@ -5,9 +5,9 @@ import { signJwt } from "@/lib/auth/jwt";
 
 export async function POST(req) {
   try {
-    const { name, email, password } = await req.json();
+    const { name, email, password,repeatPassword } = await req.json();
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !repeatPassword || password !== repeatPassword) {
       return NextResponse.json(
         { error: "Lütfen tüm alanları doldurun" },
         { status: 400 }

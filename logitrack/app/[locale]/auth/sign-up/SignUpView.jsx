@@ -12,16 +12,26 @@ import {
   Button,
   Link,
   Divider,
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  alpha,
 } from "@mui/material";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1586511925558-a4b69ed23dfb?auto=format&fit=crop&w=1400&q=80";
 
-export default function SignupPage() {
+const theme = createTheme({
+  typography: {
+    fontFamily: "var(--font-geist-sans)",
+  },
+});
+
+export default function SignupPage({ locale = "en" }) {
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
+    repeatPassword: "",
   });
 
   const handleChange = (field) => (event) => {
@@ -46,28 +56,32 @@ export default function SignupPage() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
+          <CssBaseline/>
     <Box
       sx={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        p: { xs: 2, md: 4 },
-        background: (theme) =>
-          `radial-gradient(circle at top left, ${theme.palette.grey[200]}, ${theme.palette.grey[300]})`,
-      }}
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          bgcolor: alpha("#0f172a", 0.12),
+          py: { xs: 6, md: 8 },
+          px: { xs: 2, sm: 4 },
+        }}
     >
       <Paper
         elevation={12}
         sx={{
-          width: "100%",
-          maxWidth: "80%",
-          minHeight: { md: 750 },
-          borderRadius: 6,
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-        }}
+                    width: "100%",
+                    maxWidth: '80%',
+                    minHeight: { xs: 560, md: 750 },
+                    borderRadius: { xs: 4, md: 5 },
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    bgcolor: alpha("#0f172a", 0.65),
+                    position: "relative",
+                  }}
       >
         <Box
           sx={{
@@ -117,20 +131,17 @@ export default function SignupPage() {
               <Box
                 sx={{
                   position: "relative",
-                  width: 220,
-                  height: 130,
+                  width: 320,
+                  height: 400,
                   borderRadius: 4,
                   overflow: "hidden",
-                  background: "rgba(15,26,51,0.5)",
-                  backdropFilter: "blur(6px)",
-                  border: "1px solid rgba(255,255,255,0.15)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
                 <Image
-                  src="/globe.svg"
+                  src="/logo1-vector.png"
                   alt="Global logistics"
                   fill
                   style={{ objectFit: "cover", opacity: 0.85 }}
@@ -164,36 +175,39 @@ export default function SignupPage() {
               boxShadow: "0 24px 48px rgba(15,26,51,0.18)",
             }}
           >
-            <Stack spacing={5}>
-              <Box>
+            <Stack spacing={7}>
+              <Box >
+                <Stack direction="row" spacing={0} alignItems="center">
+
+                  <Image src="/logo1-vector.png" alt="logo" width={30} height={30}/>
                 <Typography
-                  variant="subtitle2"
-                  sx={{ fontWeight: 600, color: "#2563EB", letterSpacing: 2 }}
+                  variant="body1"
+                  sx={{ fontWeight: 600, color: "#212222ff", letterSpacing: 2 }}
                 >
-                  LOGI-TRACK
+                  LOGI-
                 </Typography>
-                <Typography variant="h5" sx={{ fontWeight: 700, mt: 1 }}>
-                  Create Your Company Account
+                  <Typography
+                  variant="subtitle1"
+                  sx={{ fontWeight: 600, color: "#47b2b1", letterSpacing: 2 }}
+                >
+                  TRACK
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                </Stack>
+                
+                <Typography variant="h5" sx={{ fontWeight: 700, mt: 2 }}>
+                  Create Your Account
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
                   Sign up to access analytics, fleet monitoring, and secure operations.
                 </Typography>
               </Box>
 
-              <Stack spacing={2.5}>
+              <Stack spacing={3}>
                 <TextField
                   label="Full Name"
                   variant="outlined"
                   value={form.name}
                   onChange={handleChange("name")}
-                  fullWidth
-                  required
-                />
-                <TextField
-                  label="Company"
-                  variant="outlined"
-                  value={form.company}
-                  onChange={handleChange("company")}
                   fullWidth
                   required
                 />
@@ -212,6 +226,15 @@ export default function SignupPage() {
                   variant="outlined"
                   value={form.password}
                   onChange={handleChange("password")}
+                  fullWidth
+                  required
+                />
+                <TextField
+                  label="Repeat Password"
+                  type="password"
+                  variant="outlined"
+                  value={form.repeatPassword}
+                  onChange={handleChange("repeatPassword")}
                   fullWidth
                   required
                 />
@@ -256,5 +279,6 @@ export default function SignupPage() {
         </Box>
       </Paper>
     </Box>
+    </ThemeProvider>
   );
 }
