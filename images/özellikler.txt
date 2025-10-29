@@ -1,0 +1,248 @@
+🚚 Tüm Lojistik Takip Sistemlerinde Bulunan / Bulunabilecek Özelliklerin Toplu Listesi
+🔍 1. Gerçek Zamanlı Takip & Harita Özellikleri
+
+Gerçek zamanlı GPS izleme
+
+Canlı araç konum güncellemesi (saniye bazlı)
+
+Harita katmanları (trafik, yol durumu, hava durumu, rota)
+
+Rota geçmişi görüntüleme
+
+Harita üzerinde araç kümelenmesi (cluster view)
+
+Geofence (bölge belirleme ve giriş/çıkış alarmı)
+
+Rota optimizasyonu (en kısa yol, durak sırası optimizasyonu)
+
+Rota sapması tespiti
+
+ETA (Estimated Time of Arrival) hesaplama
+
+Konum bazlı bildirimler (örneğin “müşteri noktasına varıldı”)
+
+⚙️ 2. Araç Telemetri & Sensör Verileri
+
+Motor durumu ve hata kodları (OBD/diagnostic data)
+
+Yakıt seviyesi takibi
+
+Yakıt tüketim analizi
+
+Rölanti (idling) süresi tespiti
+
+Lastik basınç sensörü verisi (TPMS entegrasyonu)
+
+Voltaj / akü seviyesi takibi
+
+Sıcaklık sensörü (soğutmalı taşıma için)
+
+Motor devri (RPM) ve hız analizi
+
+Fren, gaz, direksiyon verileri
+
+Araç kilometre / kullanım süresi ölçümü
+
+Elektrikli araçlarda batarya durumu ve şarj takibi
+
+🧭 3. Sürücü Yönetimi & Güvenlik
+
+Sürücü kimlik tanıma (RFID, uygulama girişi vs.)
+
+Sürücü çalışma / dinlenme süreleri (ELD uyumluluğu)
+
+Sürüş davranışı analizi (sert fren, hızlanma, viraj, şerit değişimi)
+
+AI destekli sürücü kamera analizi (yorgunluk, telefon kullanımı, dikkatsizlik)
+
+Kaza tespiti ve olayı otomatik raporlama
+
+Sürücü güvenlik puanı (Driver Safety Score)
+
+Otomatik uyarı sistemi (aşırı hız, güvenlik ihlali, rota dışı)
+
+Sürücü eğitim / koçluk modülü
+
+Görev atama ve rota paylaşımı
+
+Sürücü ile canlı mesajlaşma veya arama
+
+💰 4. Yakıt & Maliyet Yönetimi
+
+Yakıt tüketimi ve verimlilik raporları
+
+Yakıt çalınması / anormal azalma tespiti
+
+Yakıt kartı entegrasyonu (fuel card)
+
+Yakıt dolum noktası takibi
+
+Araç başına kilometre başı maliyet analizi
+
+Rölanti süresine göre yakıt kaybı analizi
+
+CO₂ emisyon takibi
+
+🧾 5. Raporlama & Analitik
+
+Araç bazlı performans raporu
+
+Sürücü bazlı rapor (puan, olay sayısı, rota istatistikleri)
+
+Günlük / haftalık / aylık filo raporları
+
+Yakıt tüketim trendleri
+
+Durma süresi (idle & dwell time) analizleri
+
+Rota verimlilik raporları
+
+KPI panelleri (verimlilik, teslimat başarı oranı, gecikme oranı)
+
+Rapor planlama (PDF, Excel, otomatik mail gönderimi)
+
+Olay bazlı raporlama (örneğin hız ihlali listesi)
+
+🔧 6. Bakım & Servis Yönetimi
+
+Bakım planlama (örnek: her 10.000 km’de bakım uyarısı)
+
+Servis geçmişi kaydı
+
+Parça değişim ve bakım maliyeti takibi
+
+Araç arıza kodu (DTC) okuma
+
+Yaklaşan bakım hatırlatıcıları
+
+Otomatik bakım takvimi oluşturma
+
+Teknik muayene / sigorta tarih uyarısı
+
+🧱 7. Filo / Varlık Yönetimi
+
+Römork, konteyner, ekipman takibi
+
+Sabit varlık (örnek jeneratör, vinç) konum izleme
+
+Varlık transfer geçmişi
+
+Ekipman kullanım süresi ve lokasyon kaydı
+
+QR kod / RFID ile varlık tanımlama
+
+Hırsızlık alarmı (hareket algılama, yetkisiz kullanım)
+
+📱 8. Mobil Uygulama Özellikleri
+
+Sürücü uygulaması (rota, görev, mesajlaşma)
+
+Yöneticiler için filo izleme uygulaması
+
+Push bildirimleri (geç kalma, kaza, bölge dışı çıkış)
+
+Mobil üzerinden canlı kamera görüntüsü izleme
+
+Sürücü vardiya başlangıç / bitiş bildirimi
+
+Uygulama içi belge yükleme (örneğin teslim fişi fotoğrafı)
+
+💬 9. İletişim & Dispatch Yönetimi
+
+Görev / rota atama modülü
+
+Görev durumu: beklemede – yolda – teslim edildi
+
+Sürücüye anlık mesaj / çağrı
+
+Müşteriye ETA bildirimleri
+
+Teslim kanıtı (e-imza veya fotoğraf)
+
+Çok noktalı teslimat desteği
+
+Rota değişikliği bildirimi
+
+Operatör-sürücü sohbet geçmişi
+
+🧩 10. Entegrasyonlar & API
+
+REST API / Webhook desteği
+
+ERP / CRM entegrasyonu (ör. SAP, Zoho, Salesforce)
+
+TMS (Transport Management System) entegrasyonu
+
+Yakıt kartı ve ödeme sistemleri entegrasyonu
+
+Üçüncü parti harita servisleri (Google Maps, Mapbox, OpenStreetMap)
+
+Raporlama araçlarıyla entegrasyon (Power BI, Excel)
+
+WebSocket veya MQTT veri akışı (bazı sistemlerde)
+
+Uygulama Market (App Marketplace) desteği
+
+🧮 11. Uyumluluk & Regülasyon
+
+ELD (Electronic Logging Device) desteği
+
+HOS (Hours of Service) kayıtları
+
+DVIR (Vehicle Inspection Reports)
+
+Uyumluluk raporlama (taşımacılık mevzuatlarına uygunluk)
+
+Avrupa ve ABD standartlarına göre sürücü kayıtları
+
+GDPR / veri gizliliği uyumluluğu
+
+🔐 12. Güvenlik & Kamera Sistemleri
+
+AI destekli dashcam (sürücü yüz takibi, dikkat ölçümü)
+
+Kaza anı video kaydı (ön ve iç kamera)
+
+Olay anında otomatik video kaydı
+
+Anlık görüntü alma (snapshot)
+
+Sürüş videosu arşivi
+
+Kamera uyarı sistemi (ör. göz kapama, telefon kullanımı)
+
+Canlı video yayını (bazı lisanslarda)
+
+🌐 13. Bulut / Yazılım Özellikleri
+
+Web tabanlı kontrol paneli
+
+Gerçek zamanlı veri senkronizasyonu
+
+Çoklu kullanıcı desteği (yönetici, operatör, sürücü)
+
+Yetkilendirme seviyeleri (admin / user rolleri)
+
+SSL şifreli veri aktarımı
+
+Günlük veri yedekleme
+
+Kullanıcı oturum geçmişi
+
+⚡ 14. Ek Özellikler / Yenilikçi Modüller
+
+Araç içi Wi-Fi hotspot (Samsara)
+
+Elektrikli araç yönetimi (EV battery tracking)
+
+Hava sensörleri / sıcaklık loglama (soğuk zincir taşımacılığı)
+
+Kargo sıcaklık / nem kontrolü
+
+Karbon ayak izi hesaplama
+
+Drone / otonom araç entegrasyonu (bazı sistemlerde pilot denemeler)
+
+Harita ısı grafikleri (fleet density heatmap)
+
+Rapor otomasyonu (otomatik PDF gönderimi)
