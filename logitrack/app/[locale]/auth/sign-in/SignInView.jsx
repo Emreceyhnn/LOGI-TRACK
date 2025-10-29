@@ -26,7 +26,7 @@ const theme = createTheme({
 });
 
 const backgroundImage =
-  "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1080&q=80";
+  "https://images.squarespace-cdn.com/content/v1/5940ec0a3e00befac5d7633c/177e1da1-4122-4218-98b9-a552878648c7/logistics.png";
 
 export default function SignInView({ locale = "en" }) {
 
@@ -54,13 +54,17 @@ export default function SignInView({ locale = "en" }) {
           alignItems: "center",
           justifyContent: "center",
           bgcolor: alpha("#0f172a", 0.12),
+          py: { xs: 6, md: 8 },
+          px: { xs: 2, sm: 4 },
         }}
       >
         <Paper
           elevation={12}
           sx={{
             width: "100%",
-            height:"100vh",
+            maxWidth: '80%',
+            minHeight: { xs: 560, md: 750 },
+            borderRadius: { xs: 4, md: 5 },
             overflow: "hidden",
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
@@ -114,7 +118,7 @@ export default function SignInView({ locale = "en" }) {
                     }}
                   >
                     <Image
-                      src="/globe.svg"
+                      src="/logo-beyaz-vector.png"
                       alt="Logi-Track icon"
                       width={20}
                       height={20}
@@ -124,7 +128,7 @@ export default function SignInView({ locale = "en" }) {
                     variant="subtitle1"
                     sx={{ fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" }}
                   >
-                    LOGI-TRACK
+                    LOGI-<span style={{color:"hex(#38bdf8,0.35)"}}>TRACK</span>
                   </Typography>
                 </Stack>
                 <Typography variant="h4" sx={{ fontWeight: 600, maxWidth: 320 }}>
@@ -159,7 +163,7 @@ export default function SignInView({ locale = "en" }) {
             <Box sx={{ width: "100%", maxWidth: 320 }}>
               <Stack spacing={3}>
                 <Stack spacing={0.5} alignItems="center">
-                  <Image src="/globe.svg" alt="Logi-Track" width={36} height={36} />
+                  <Image src="/logo1-vector.png" alt="Logi-Track" width={50} height={50} />
                   <Typography variant="h5" sx={{ fontWeight: 700, textAlign: "center" }}>
                     Login to Your Company Dashboard
                   </Typography>
@@ -187,10 +191,6 @@ export default function SignInView({ locale = "en" }) {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <FormControlLabel
-                      control={<Checkbox size="small" />}
-                      label={<Typography variant="body2">Remember me</Typography>}
-                    />
                     <Link
                       component={NextLink}
                       href={`/${locale}/auth/forgot-password`}
