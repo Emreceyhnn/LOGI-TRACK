@@ -25,6 +25,7 @@ const theme = createTheme({
   },
 });
 
+
 export default function SignupPage({ locale = "en" }) {
 
   const [form, setForm] = useState({
@@ -64,7 +65,7 @@ export default function SignupPage({ locale = "en" }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          bgcolor: alpha("#0f172a", 0.12),
+          bgcolor: alpha("#0e1c3bff", 0.60),
           py: { xs: 6, md: 8 },
           px: { xs: 2, sm: 4 },
         }}
@@ -91,7 +92,7 @@ export default function SignupPage({ locale = "en" }) {
           }}
         >
           <Image
-            src={"/bg.png"}
+            src={"/background-auth.jpeg"}
             alt="Fleet of trucks at sunset"
             fill
             sizes="(min-width: 900px) 50vw, 0vw"
@@ -266,7 +267,7 @@ export default function SignupPage({ locale = "en" }) {
                   Already have an account?{" "}
                   <Link
                     component={NextLink}
-                    href="../login"
+                    href={`/${locale}/auth/sign-in`}
                     underline="none"
                     sx={{ fontWeight: 600, color: "#2563EB" }}
                   >

@@ -168,11 +168,19 @@ export default function SignInView({ locale = "en" }) {
             }}
           >
             <Box sx={{ width: "100%", maxWidth: 320 }}>
-              <Stack spacing={3}>
-                <Stack spacing={0.5} alignItems="center">
-                  <Image src="/logo1-vector.png" alt="Logi-Track" width={50} height={50} />
+              <Stack spacing={10}>
+                <Stack spacing={3} alignItems="center">
+                 <Stack direction={"row"} alignItems={"center"}>
+                  <Image src={"/logo1-vector.png"} alt="logo" width={50} height={50}/>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" }}
+                  >
+                    LOGI-<span style={{color:"hex(#38bdf8,0.35)"}}>TRACK</span>
+                  </Typography></Stack>
+                  
                   <Typography variant="h5" sx={{ fontWeight: 700, textAlign: "center" }}>
-                    Login to Your Dashboard
+                    Login <br/>to Your Dashboard
                   </Typography>
                   
                 </Stack>
@@ -232,7 +240,7 @@ export default function SignInView({ locale = "en" }) {
                     Don&apos;t have an account?{` `}
                     <Link
                       component={NextLink}
-                      href={`/${locale}/auth/register`}
+                      href={`/${locale}/auth/sign-up`}
                       sx={{ fontWeight: 600 }}
                     >
                       Create one
