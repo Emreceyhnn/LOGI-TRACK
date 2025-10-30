@@ -22,7 +22,8 @@ const featureCards = [
   },
   {
     title: "Predictive ETAs",
-    description: "Accurately forecast arrival times with AI-powered scheduling models.",
+    description:
+      "Accurately forecast arrival times with AI-powered scheduling models.",
   },
   {
     title: "Driver Performance",
@@ -55,6 +56,24 @@ const workflow = [
     description:
       "Trigger proactive workflows, alerts, and customer updates before issues escalate.",
   },
+  {
+    step: "4",
+    title: "Optimize Routes",
+    description:
+      "Leverage AI-driven route optimization to minimize fuel costs, idle time, and delays.",
+  },
+  {
+    step: "5",
+    title: "Analyze Performance",
+    description:
+      "Evaluate KPIs such as delivery accuracy, driver efficiency, and cost per shipment with analytics tools.",
+  },
+  {
+    step: "6",
+    title: "Scale Seamlessly",
+    description:
+      "Expand your logistics network confidently with modular integrations and scalable infrastructure.",
+  },
 ];
 
 const trustedLogos = [
@@ -81,7 +100,8 @@ export default function LandingPage() {
           position: "relative",
           flex: 1,
           overflow: "hidden",
-          background: "linear-gradient(135deg, #0f172a 0%, #1f2a44 45%, #111827 100%)",
+          background:
+            "linear-gradient(135deg, #0f172a 0%, #1f2a44 45%, #111827 100%)",
         }}
       >
         <Box
@@ -119,7 +139,7 @@ export default function LandingPage() {
                 }}
               >
                 <Image
-                  src="/logo1-beyaz.png"
+                  src="/logo-beyaz-vector.png"
                   alt="LogiTrack Logo"
                   width={28}
                   height={28}
@@ -132,27 +152,23 @@ export default function LandingPage() {
             </Stack>
 
             <Stack direction="row" spacing={4} alignItems="center">
-              {[
-                "Features",
-                "Testimonials",
-                "Pricing",
-                "About",
-                "Blog",
-              ].map((item) => (
-                <Typography
-                  key={item}
-                  variant="body2"
-                  sx={{
-                    fontWeight: 500,
-                    cursor: "pointer",
-                    color: alpha("#e2e8f0", 0.88),
-                    transition: "color 0.2s ease",
-                    "&:hover": { color: "#38bdf8" },
-                  }}
-                >
-                  {item}
-                </Typography>
-              ))}
+              {["Features", "Testimonials", "Pricing", "About", "Blog"].map(
+                (item) => (
+                  <Typography
+                    key={item}
+                    variant="body2"
+                    sx={{
+                      fontWeight: 500,
+                      cursor: "pointer",
+                      color: alpha("#e2e8f0", 0.88),
+                      transition: "color 0.2s ease",
+                      "&:hover": { color: "#38bdf8" },
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                )
+              )}
             </Stack>
 
             <Stack direction="row" spacing={2}>
@@ -187,7 +203,10 @@ export default function LandingPage() {
           </Toolbar>
         </AppBar>
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, pt: 12, pb: 14 }}>
+        <Container
+          maxWidth="lg"
+          sx={{ position: "relative", zIndex: 1, pt: 12, pb: 14 }}
+        >
           <Grid container spacing={8} alignItems="center">
             <Grid item xs={12} md={6}>
               <Stack spacing={4}>
@@ -205,10 +224,13 @@ export default function LandingPage() {
                 <Typography variant="h2" fontWeight={800} lineHeight={1.1}>
                   Smart tracking for enterprise logistics.
                 </Typography>
-                <Typography variant="body1" sx={{ color: alpha("#cbd5f5", 0.9), fontSize: 18 }}>
-                  Manage your entire fleet, dispatch, and delivery times from a single
-                  command center. Monitor every shipment with predictive insights and
-                  automated alerts.
+                <Typography
+                  variant="body1"
+                  sx={{ color: alpha("#cbd5f5", 0.9), fontSize: 18 }}
+                >
+                  Manage your entire fleet, dispatch, and delivery times from a
+                  single command center. Monitor every shipment with predictive
+                  insights and automated alerts.
                 </Typography>
 
                 <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -265,7 +287,10 @@ export default function LandingPage() {
                     <Typography variant="h4" fontWeight={800}>
                       98%
                     </Typography>
-                    <Typography variant="body2" sx={{ color: alpha("#e2e8f0", 0.75) }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: alpha("#e2e8f0", 0.75) }}
+                    >
                       On-time delivery rate
                     </Typography>
                   </Stack>
@@ -273,7 +298,10 @@ export default function LandingPage() {
                     <Typography variant="h4" fontWeight={800}>
                       12k+
                     </Typography>
-                    <Typography variant="body2" sx={{ color: alpha("#e2e8f0", 0.75) }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: alpha("#e2e8f0", 0.75) }}
+                    >
                       Shipments monitored
                     </Typography>
                   </Stack>
@@ -291,6 +319,7 @@ export default function LandingPage() {
                   background: alpha("#1e293b", 0.6),
                   border: `1px solid ${alpha("#38bdf8", 0.18)}`,
                   boxShadow: "0 40px 120px rgba(15, 23, 42, 0.45)",
+                  width: "100%",
                 }}
               >
                 <Box
@@ -304,8 +333,15 @@ export default function LandingPage() {
                 />
 
                 <Stack spacing={3} position="relative" zIndex={1}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Typography variant="subtitle2" sx={{ color: alpha("#e2e8f0", 0.8) }}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                  >
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ color: alpha("#e2e8f0", 0.8) }}
+                    >
                       Live Fleet Overview
                     </Typography>
                     <Button
@@ -326,17 +362,27 @@ export default function LandingPage() {
 
                   <Box
                     sx={{
+                      width: "100%",
                       borderRadius: 4,
                       overflow: "hidden",
                       border: `1px solid ${alpha("#38bdf8", 0.2)}`,
                     }}
                   >
-                    <Image
-                      src="/sign-up.webp"
-                      alt="Fleet dashboard"
-                      width={960}
-                      height={600}
-                      style={{ width: "100%", height: "auto" }}
+                    <video
+                      src="/landing-hero.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        display: "block",
+                      }}
+                      // src="/sign-up.webp"
+                      // alt="Fleet dashboard"
+                      // width={960}
+                      // height={600}
+                      // style={{ width: "100%", height: "auto" }}
                     />
                   </Box>
 
@@ -359,7 +405,10 @@ export default function LandingPage() {
                         <Typography variant="h6" fontWeight={700}>
                           {metric.value}
                         </Typography>
-                        <Typography variant="caption" sx={{ color: alpha("#cbd5f5", 0.75) }}>
+                        <Typography
+                          variant="caption"
+                          sx={{ color: alpha("#cbd5f5", 0.75) }}
+                        >
                           {metric.label}
                         </Typography>
                       </Box>
@@ -378,7 +427,11 @@ export default function LandingPage() {
             variant="overline"
             display="block"
             textAlign="center"
-            sx={{ color: alpha("#38bdf8", 0.8), fontWeight: 600, letterSpacing: 4 }}
+            sx={{
+              color: alpha("#38bdf8", 0.8),
+              fontWeight: 600,
+              letterSpacing: 4,
+            }}
           >
             Trusted by industry leaders
           </Typography>
@@ -411,15 +464,22 @@ export default function LandingPage() {
           <Grid container spacing={8}>
             <Grid item xs={12} md={6}>
               <Stack spacing={3}>
-                <Typography variant="overline" sx={{ color: "#38bdf8", letterSpacing: 3 }}>
+                <Typography
+                  variant="overline"
+                  sx={{ color: "#38bdf8", letterSpacing: 3 }}
+                >
                   Core features
                 </Typography>
                 <Typography variant="h3" fontWeight={800}>
                   Everything you need for end-to-end visibility.
                 </Typography>
-                <Typography variant="body1" sx={{ color: alpha("#cbd5f5", 0.85) }}>
-                  Coordinate dispatch, drivers, and customer updates with intelligent
-                  workflows designed for complex logistics operations.
+                <Typography
+                  variant="body1"
+                  sx={{ color: alpha("#cbd5f5", 0.85) }}
+                >
+                  Coordinate dispatch, drivers, and customer updates with
+                  intelligent workflows designed for complex logistics
+                  operations.
                 </Typography>
               </Stack>
             </Grid>
@@ -444,7 +504,10 @@ export default function LandingPage() {
                       <Typography variant="subtitle1" fontWeight={700} mb={1.5}>
                         {card.title}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: alpha("#e2e8f0", 0.75) }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: alpha("#e2e8f0", 0.75) }}
+                      >
                         {card.description}
                       </Typography>
                     </Box>
@@ -458,47 +521,67 @@ export default function LandingPage() {
 
       <Box sx={{ bgcolor: "#0b1120", py: 12 }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: 6,
+            }}
+          >
             {workflow.map((item) => (
-              <Grid key={item.step} item xs={12} md={4}>
-                <Box
-                  sx={{
-                    height: "100%",
-                    borderRadius: 4,
-                    p: 4,
-                    backgroundColor: alpha("#1e293b", 0.6),
-                    border: `1px solid ${alpha("#38bdf8", 0.16)}`,
-                  }}
+              <Box
+                key={item.step}
+                sx={{
+                  borderRadius: 4,
+                  p: 4,
+                  backgroundColor: alpha("#1e293b", 0.6),
+                  border: `1px solid ${alpha("#38bdf8", 0.16)}`,
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 24px 60px rgba(15, 23, 42, 0.45)",
+                  },
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{ color: alpha("#38bdf8", 0.85), fontWeight: 700, mb: 1 }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{ color: alpha("#38bdf8", 0.85), fontWeight: 700, mb: 1 }}
-                  >
-                    Step {item.step}
-                  </Typography>
-                  <Typography variant="h5" fontWeight={700} mb={1.5}>
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: alpha("#cbd5f5", 0.8) }}>
-                    {item.description}
-                  </Typography>
-                </Box>
-              </Grid>
+                  Step {item.step}
+                </Typography>
+                <Typography variant="h5" fontWeight={700} mb={1.5}>
+                  {item.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ color: alpha("#cbd5f5", 0.8) }}
+                >
+                  {item.description}
+                </Typography>
+              </Box>
             ))}
-          </Grid>
+          </Box>
         </Container>
       </Box>
 
       <Box sx={{ bgcolor: "#0f172a", py: 10 }}>
         <Container maxWidth="lg">
-          <Stack direction={{ xs: "column", md: "row" }} spacing={4} alignItems="center" justifyContent="space-between">
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={4}
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <Stack spacing={2}>
               <Typography variant="h4" fontWeight={800}>
                 Ready to modernize your logistics operations?
               </Typography>
-              <Typography variant="body1" sx={{ color: alpha("#cbd5f5", 0.85) }}>
-                Partner with Logi-Track to unlock real-time visibility, predictive
-                intelligence, and exceptional customer experiences.
+              <Typography
+                variant="body1"
+                sx={{ color: alpha("#cbd5f5", 0.85) }}
+              >
+                Partner with Logi-Track to unlock real-time visibility,
+                predictive intelligence, and exceptional customer experiences.
               </Typography>
             </Stack>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -543,13 +626,22 @@ export default function LandingPage() {
 
       <Box sx={{ bgcolor: "#0b1120", py: 6 }}>
         <Container maxWidth="lg">
-          <Stack direction={{ xs: "column", md: "row" }} spacing={2} alignItems="center" justifyContent="space-between">
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={2}
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <Typography variant="body2" sx={{ color: alpha("#e2e8f0", 0.6) }}>
               © {new Date().getFullYear()} Logi-Track. All rights reserved.
             </Typography>
             <Stack direction="row" spacing={3}>
               {"Privacy Policy Terms Support".split(" ").map((item) => (
-                <Typography key={item} variant="body2" sx={{ color: alpha("#e2e8f0", 0.65) }}>
+                <Typography
+                  key={item}
+                  variant="body2"
+                  sx={{ color: alpha("#e2e8f0", 0.65) }}
+                >
                   {item}
                 </Typography>
               ))}
