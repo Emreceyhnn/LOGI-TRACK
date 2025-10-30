@@ -25,9 +25,7 @@ const theme = createTheme({
   },
 });
 
-
 export default function SignInView({ locale = "en" }) {
-  
   /* --------------------------------- states --------------------------------- */
   const [form, setForm] = useState({
     email: "",
@@ -35,11 +33,10 @@ export default function SignInView({ locale = "en" }) {
   });
 
   /* --------------------------------- handler -------------------------------- */
-  
+
   const handleChange = (field) => (event) => {
     setForm((prev) => ({ ...prev, [field]: event.target.value }));
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +46,7 @@ export default function SignInView({ locale = "en" }) {
       body: JSON.stringify(form),
     });
     const data = await res.json();
-  }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -69,7 +66,7 @@ export default function SignInView({ locale = "en" }) {
           elevation={12}
           sx={{
             width: "100%",
-            maxWidth: '80%',
+            maxWidth: "80%",
             minHeight: { xs: 560, md: 750 },
             borderRadius: { xs: 4, md: 5 },
             overflow: "hidden",
@@ -94,7 +91,10 @@ export default function SignInView({ locale = "en" }) {
                 backgroundImage: `linear-gradient(90deg, ${alpha(
                   "#0f172a",
                   0.75
-                )}, ${alpha("#0f172a", 0.35)}), url(https://images.squarespace-cdn.com/content/v1/5940ec0a3e00befac5d7633c/177e1da1-4122-4218-98b9-a552878648c7/logistics.png)`,
+                )}, ${alpha(
+                  "#0f172a",
+                  0.35
+                )}), url(https://images.squarespace-cdn.com/content/v1/5940ec0a3e00befac5d7633c/177e1da1-4122-4218-98b9-a552878648c7/logistics.png)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -133,17 +133,28 @@ export default function SignInView({ locale = "en" }) {
                   </Box>
                   <Typography
                     variant="subtitle1"
-                    sx={{ fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" }}
+                    sx={{
+                      fontWeight: 600,
+                      letterSpacing: 2,
+                      textTransform: "uppercase",
+                    }}
                   >
-                    LOGI-<span style={{color:"hex(#38bdf8,0.35)"}}>TRACK</span>
+                    LOGI-
+                    <span style={{ color: "hex(#38bdf8,0.35)" }}>TRACK</span>
                   </Typography>
                 </Stack>
-                <Typography variant="h4" sx={{ fontWeight: 600, maxWidth: 320 }}>
+                <Typography
+                  variant="h4"
+                  sx={{ fontWeight: 600, maxWidth: 320 }}
+                >
                   Seamless logistics insights for your fleet
                 </Typography>
-                <Typography variant="body2" sx={{ maxWidth: 360, opacity: 0.8 }}>
-                  Monitor deliveries, coordinate drivers, and stay ahead with actionable
-                  analytics tailored for your operations team.
+                <Typography
+                  variant="body2"
+                  sx={{ maxWidth: 360, opacity: 0.8 }}
+                >
+                  Monitor deliveries, coordinate drivers, and stay ahead with
+                  actionable analytics tailored for your operations team.
                 </Typography>
               </Stack>
               <Stack spacing={2.5} sx={{ maxWidth: 360 }}>
@@ -151,7 +162,8 @@ export default function SignInView({ locale = "en" }) {
                   {locale.toUpperCase()} PLATFORM ACCESS
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.7 }}>
-                  Secured with enterprise-grade encryption and multi-layered monitoring.
+                  Secured with enterprise-grade encryption and multi-layered
+                  monitoring.
                 </Typography>
               </Stack>
             </Stack>
@@ -170,19 +182,33 @@ export default function SignInView({ locale = "en" }) {
             <Box sx={{ width: "100%", maxWidth: 320 }}>
               <Stack spacing={10}>
                 <Stack spacing={3} alignItems="center">
-                 <Stack direction={"row"} alignItems={"center"}>
-                  <Image src={"/logo1-vector.png"} alt="logo" width={50} height={50}/>
+                  <Stack direction={"row"} alignItems={"center"}>
+                    <Image
+                      src={"/logo1-vector.png"}
+                      alt="logo"
+                      width={50}
+                      height={50}
+                    />
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        fontWeight: 600,
+                        letterSpacing: 2,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      LOGI-
+                      <span style={{ color: "hex(#38bdf8,0.35)" }}>TRACK</span>
+                    </Typography>
+                  </Stack>
+
                   <Typography
-                    variant="subtitle1"
-                    sx={{ fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" }}
+                    variant="h5"
+                    sx={{ fontWeight: 700, textAlign: "center" }}
                   >
-                    LOGI-<span style={{color:"hex(#38bdf8,0.35)"}}>TRACK</span>
-                  </Typography></Stack>
-                  
-                  <Typography variant="h5" sx={{ fontWeight: 700, textAlign: "center" }}>
-                    Login <br/>to Your Dashboard
+                    Login <br />
+                    to Your Dashboard
                   </Typography>
-                  
                 </Stack>
                 <Stack component="form" spacing={2} noValidate>
                   <TextField
@@ -193,7 +219,6 @@ export default function SignInView({ locale = "en" }) {
                     value={form.email}
                     onChange={handleChange("email")}
                     fullWidth
-                   
                   />
                   <TextField
                     label="Password"
@@ -240,13 +265,17 @@ export default function SignInView({ locale = "en" }) {
                     Don&apos;t have an account?{` `}
                     <Link
                       component={NextLink}
-                      href={`/${locale}/auth/sign-up`}
+                      href={`/${locale}/sign-up`}
                       sx={{ fontWeight: 600 }}
                     >
                       Create one
                     </Link>
                   </Typography>
-                  <Typography variant="caption" color="text.secondary" align="center">
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    align="center"
+                  >
                     Your data secured SSL, encryption, user parity.
                   </Typography>
                 </Stack>

@@ -297,6 +297,7 @@ export default function LandingPage() {
                   textTransform: "none",
                   "&:hover": { color: "#38bdf8" },
                 }}
+                href="/en/sign-in"
               >
                 Login
               </Button>
@@ -783,6 +784,11 @@ export default function LandingPage() {
                     p: 4,
                     backgroundColor: alpha("#1e293b", 0.6),
                     border: `1px solid ${alpha("#38bdf8", 0.16)}`,
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                    "&:hover": {
+                      transform: "translateY(-4px)",
+                      boxShadow: "0 24px 60px rgba(15, 23, 42, 0.45)",
+                    },
                   }}
                 >
                   <Typography
