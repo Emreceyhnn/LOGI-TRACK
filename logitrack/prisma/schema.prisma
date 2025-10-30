@@ -16,17 +16,6 @@ model User {
   createdAt DateTime @default(now())
 }
 
-model Vehicle {
-  id        Int      @id @default(autoincrement())
-  plate     String
-  model     String
-  fuelType  String
-  driverId  Int?
-  driver    Driver?  @relation(fields: [driverId], references: [id])
-  telemetry Telemetry[]
-  createdAt DateTime @default(now())
-}
-
 model Driver {
   id        Int       @id @default(autoincrement())
   name      String
@@ -36,6 +25,20 @@ model Driver {
   createdAt DateTime  @default(now())
 }
 
+model Vehicle {
+  id        Int      @id @default(autoincrement())
+  plate     String
+  model     String
+  fuelType  String
+  driverId  Int?
+  driver    Driver?  @relation(fields: [driverId], references: [id])
+  telemetry Telemetry[]
+  serviceStatus String default("ok") // ok | due Soon | override
+  insuranceExpiry DateTime
+  mileage Int
+  createdAt DateTime @default(now())
+}
+
 model Telemetry {
   id         Int      @id @default(autoincrement())
   vehicleId  Int
@@ -43,6 +46,11 @@ model Telemetry {
   fuel       Float
   rpm        Float
   temp       Float
+  averageFuelConsumption Float
+  averageSpeed Float
+  averageRpm Float
+  emission Float
+  errorMessage String
   timestamp  DateTime @default(now())
   vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
 }
