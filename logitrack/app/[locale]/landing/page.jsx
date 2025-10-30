@@ -103,6 +103,24 @@ const workflow = [
     description:
       "Trigger proactive workflows, alerts, and customer updates before issues escalate.",
   },
+  {
+    step: "4",
+    title: "Optimize Routes",
+    description:
+      "Leverage AI-driven route optimization to minimize fuel costs, idle time, and delays.",
+  },
+  {
+    step: "5",
+    title: "Analyze Performance",
+    description:
+      "Evaluate KPIs such as delivery accuracy, driver efficiency, and cost per shipment with analytics tools.",
+  },
+  {
+    step: "6",
+    title: "Scale Seamlessly",
+    description:
+      "Expand your logistics network confidently with modular integrations and scalable infrastructure.",
+  },
 ];
 
 const trustedLogos = [
@@ -750,11 +768,17 @@ export default function LandingPage() {
       <Box sx={{ bgcolor: "#0b1120", py: 12 }}>
         <Container maxWidth="lg">
           <Grid container spacing={6}>
-            {workflow.map((item) => (
-              <Grid key={item.step} item xs={12} md={4}>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)", // 3 sütun
+                gap: 6,
+              }}
+            >
+              {workflow.map((item) => (
                 <Box
+                  key={item.step}
                   sx={{
-                    height: "100%",
                     borderRadius: 4,
                     p: 4,
                     backgroundColor: alpha("#1e293b", 0.6),
@@ -781,8 +805,8 @@ export default function LandingPage() {
                     {item.description}
                   </Typography>
                 </Box>
-              </Grid>
-            ))}
+              ))}
+            </Box>
           </Grid>
         </Container>
       </Box>
