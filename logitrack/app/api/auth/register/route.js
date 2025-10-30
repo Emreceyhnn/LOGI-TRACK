@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { prisma } from "@/lib/auth/prisma";
-import { signJwt } from "@/lib/auth/jwt";
+import { prisma } from "@/lib/prisma";
+import { signJwt } from "@/lib/jwt";
 
 export async function POST(req) {
   try {

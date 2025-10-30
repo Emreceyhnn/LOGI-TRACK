@@ -1,6 +1,6 @@
 "use client";
 
-import { getCurrentUser } from "@/lib/auth/user";
+import { getCurrentUser } from "@/lib/user";
 import { useEffect, useState } from "react";
 
 const DenemePage = () => {

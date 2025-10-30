@@ -97,3 +97,16 @@ export async function getUnreadNotificationCountForUser(userId) {
         return 0;
     }
 }
+
+export async function unMarkNotificationAsRead(notificationId) {
+    try {
+        const updatedNotification = await prisma.notification.update({
+            where: { id: notificationId },
+            data: { isRead: false },
+        });
+        return updatedNotification;
+    } catch (err) {
+        console.error("unMarkNotificationAsRead error:", err);
+        return null;
+    } 
+}

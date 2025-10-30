@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { verifyJwt } from "@/lib/auth/jwt";
-import { prisma } from "@/lib/auth/prisma";
+import { verifyJwt } from "@/lib/jwt";
+import { prisma } from "@/lib/prisma";
 
 export async function GET(req) {
   try {
