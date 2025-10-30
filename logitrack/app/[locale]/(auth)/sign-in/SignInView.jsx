@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Box,
   Button,
@@ -26,6 +27,9 @@ const theme = createTheme({
 });
 
 export default function SignInView({ locale = "en" }) {
+  /* -------------------------------- variables ------------------------------- */
+  const router = useRouter();
+
   /* --------------------------------- states --------------------------------- */
   const [form, setForm] = useState({
     email: "",
@@ -46,6 +50,10 @@ export default function SignInView({ locale = "en" }) {
       body: JSON.stringify(form),
     });
     const data = await res.json();
+    if (data.status === "success") {
+      console.log("Login successful");
+      router.push(`/deneme`);
+    }
   };
 
   return (

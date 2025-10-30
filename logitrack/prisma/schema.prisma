@@ -7,33 +7,113 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  role      String   @default("operator") // admin | driver | operator
-  createdAt DateTime @default(now())
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  password     String
+  role         String    @default("operator") // admin | driver | operator
+  phone        String?   
+  isActive     Boolean   @default(true)
+  lastLogin    DateTime? 
+  createdAt    DateTime  @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  notifications Notification[]
+}
+
+model Notification {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  user        User?     @relation(fields: [userId], references: [id])
+  title       String?
+  message     String
+  type        String?   // info | warning | error | system
+  isRead      Boolean   @default(false)
+  createdAt   DateTime  @default(now())
 }
 
 model Vehicle {
-  id        Int      @id @default(autoincrement())
-  plate     String
-  model     String
-  fuelType  String
-  driverId  Int?
-  driver    Driver?  @relation(fields: [driverId], references: [id])
-  telemetry Telemetry[]
-  createdAt DateTime @default(now())
+  id               Int       @id @default(autoincrement())
+  plate            String    @unique
+  model            String
+  brand            String
+  year             Int?
+  fuelType         String
+  kilometer        Int
+  lastServiceKm    Int
+  status           String    @default("active")      // active | maintenance | inactive
+  insuranceExpiry  DateTime
+  insuranceStatus  String    @default("ok")          // ok | due soon | expired
+  serviceStatus    String    @default("ok")          // ok | due soon | overdue
+  driverId         Int?
+  driver           Driver?   @relation(fields: [driverId], references: [id])
+  telemetry        Telemetry[]
+  locationLogs     VehicleLocation[]
+  documents        VehicleDocument[]
+  maintenances     Maintenance[]
+  VehicleAlert     VehicleAlert[]
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model VehicleLocation {
+  id          Int       @id @default(autoincrement())
+  vehicleId   Int
+  latitude    Float
+  longitude   Float
+  speed       Float?
+  heading     Float?    // yön açısı (0–360°)
+  timestamp   DateTime  @default(now())
+  vehicle     Vehicle   @relation(fields: [vehicleId], references: [id])
+}
+
+model VehicleDocument {
+  id          Int       @id @default(autoincrement())
+  vehicleId   Int
+  type        String    // insurance | license | inspection | other
+  name        String
+  fileUrl     String
+  expiryDate  DateTime?
+  status      String    @default("valid") // valid | expiring | expired
+  createdAt   DateTime  @default(now())
+  vehicle     Vehicle   @relation(fields: [vehicleId], references: [id])
+}
+
+model Maintenance {
+  id          Int       @id @default(autoincrement())
+  vehicleId   Int
+  type        String    // oil_change, tire, brake, engine, etc.
+  description String?
+  cost        Float?
+  serviceKm   Int
+  serviceDate DateTime  @default(now())
+  nextServiceKm Int?
+  vehicle     Vehicle   @relation(fields: [vehicleId], references: [id])
+}
+
+model VehicleAlert {
+  id          Int       @id @default(autoincrement())
+  vehicleId   Int
+  code        String?   // örn: P0420, "Fuel Sensor"
+  severity    String    @default("info") // info | warning | critical
+  message     String
+  createdAt   DateTime  @default(now())
+  vehicle     Vehicle   @relation(fields: [vehicleId], references: [id])
 }
 
 model Driver {
   id        Int       @id @default(autoincrement())
   name      String
   phone     String
+  licenseNo String?
+  experience Int? 
   score     Float     @default(100)
+  status    String @default("active") // active | suspended | deactived
   vehicle   Vehicle[]
   createdAt DateTime  @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Telemetry {
@@ -46,3 +126,5 @@ model Telemetry {
   timestamp  DateTime @default(now())
   vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
 }
+
+

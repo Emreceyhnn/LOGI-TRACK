@@ -21,6 +21,7 @@ export async function POST(req) {
     const token = signJwt({ id: user.id, email: user.email });
 
     const res = NextResponse.json({
+      status: "success",
       message: "Giriş başarılı",
       user: { id: user.id, name: user.name, email: user.email },
     });
