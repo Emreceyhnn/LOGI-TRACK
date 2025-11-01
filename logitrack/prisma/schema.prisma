@@ -23,6 +23,14 @@ model User {
   notifications Notification[]
 }
 
+model Company {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  createdAt    DateTime  @default(now())
+  vehicles     Vehicle[]
+}
+
 model Notification {
   id          Int       @id @default(autoincrement())
   userId      Int
@@ -46,7 +54,9 @@ model Vehicle {
   status           String    @default("active")      // active | maintenance | inactive
   insuranceExpiry  DateTime
   insuranceStatus  String    @default("ok")          // ok | due soon | expired
-  serviceStatus    String    @default("ok")          // ok | due soon | overdue
+  serviceStatus    String    @default("ok")          // ok | due soon | overdue 
+  companyId        Int?
+  company          Company?  @relation(fields: [companyId], references: [id])
   driverId         Int?
   driver           Driver?   @relation(fields: [driverId], references: [id])
   telemetry        Telemetry[]
@@ -97,7 +107,7 @@ model VehicleAlert {
   id          Int       @id @default(autoincrement())
   vehicleId   Int
   code        String?   // örn: P0420, "Fuel Sensor"
-  severity    String    @default("info") // info | warning | critical
+  severity    String    @default("info") // info | warning | critical | solved
   message     String
   createdAt   DateTime  @default(now())
   vehicle     Vehicle   @relation(fields: [vehicleId], references: [id])

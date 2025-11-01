@@ -1,0 +1,18 @@
+vehicle:
+id
+plate
+status
+services status
+company 
+insurance status
+driverid
+
+
+insurance:
+status
+sort insurancedate 
+
+
+service-maintenance 
+status
+sort 
